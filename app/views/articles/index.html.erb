@@ -1,0 +1,20 @@
+
+<div class="container mt-4">
+
+    <h1>Mis Articulos</h1>
+    <hr>
+    <% @articles.each do |article| %> 
+        <h3><%= article.title %></h3>
+        <p><%= article.body%></p>
+       
+            
+        <%= link_to "Eliminar", {:action => :destroy, :id => article.id},
+        :method => :delete, data: { :confirm => "Seguro? "},  class: "btn btn-danger my-3" %>  
+    <% end %> 
+    
+    <!-- <%= link_to "Crear ", {controller: "articles", action: "new"}, class: "nav-link"%> -->
+
+    <!-- <p> <%= @nombre %></p> -->
+    <!-- <%# Este metodo inpeccion que tipo de clase es %> -->
+    <!-- <%= @articles.inspect %> -->
+</div>
