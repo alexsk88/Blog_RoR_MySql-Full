@@ -3,6 +3,13 @@
     <h4 class="text-danger">Titulo</h4>
     <p> <%= @article.title %> </p>
     
+    
+    <% unless @article.user.nil? %>
+        <h4 class="text-danger">By</h4>
+        <p> <%= @article.user.email %> </p>
+    <% end %>
+    
+    
     <h4 class="text-danger">Content</h4>
     <p> <%= @article.body %> </p>
 </div>

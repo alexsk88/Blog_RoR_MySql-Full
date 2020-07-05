@@ -27,7 +27,12 @@ class ArticlesController < ApplicationController
         # @article = Article.new(title: params[:article][:title],
         #                         body: params[:article][:body])
         # Esto de above va a ser changued por PARAMETROS FUERTES
-        @article = Article.new(article_params)
+
+        # Sin user
+        # @article = Article.new(article_params)
+        
+        # Cun Current User
+        @article = current_user.articles.new(article_params)
 
 
         # Save Article
