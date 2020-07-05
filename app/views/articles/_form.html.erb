@@ -1,0 +1,21 @@
+<%= form_for(@article) do |f|%> 
+    <% @article.errors.full_messages.each do|message|%>
+        <div class="alert alert-danger">
+            <p><%=message %></p>
+        </div>
+    <% end %>
+
+    <div class="form-group">
+        <label for="title">Titulo</label>
+        <%= f.text_field :title, class:"form-control", placeholder:"Ingresa un title"%>
+    </div>
+
+    <div class="form-group">
+        <label for="content">Contenido</label>
+        <!-- <input type="email" class="form-control" id="content" placeholder="Ingresa un Contenido"> -->
+        <!-- :title => este es campo que esta en la BD OJOJO IMPORTSNT -->
+        <%= f.text_area :body, class:"form-control", placeholder:"Ingresa unContenido" %>
+       
+        <%= f.submit name, class:"btn btn-danger btn-block mt-3" %>
+    </div>
+<% end %>

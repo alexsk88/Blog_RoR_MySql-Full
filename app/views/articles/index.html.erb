@@ -1,7 +1,7 @@
 
 <div class="container mt-4">
 
-    <h1>Mis Articulos</h1>
+    <h1 class="text-danger"><b>Mis Articulos</b></h1>
     <hr>
     <% @articles.each do |article| %> 
         <h3><%= article.title %></h3>
@@ -10,6 +10,10 @@
             
         <%= link_to "Eliminar", {:action => :destroy, :id => article.id},
         :method => :delete, data: { :confirm => "Seguro? "},  class: "btn btn-danger my-3" %>  
+
+        <%= link_to "Editar", {:action => :edit, :id => article.id},class: "btn btn-warning my-3" %>
+
+        <%= link_to "Ver", {:action => :show, :id => article.id}, class: "btn btn-info my-3" %>  
     <% end %> 
     
     <!-- <%= link_to "Crear ", {controller: "articles", action: "new"}, class: "nav-link"%> -->

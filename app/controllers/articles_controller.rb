@@ -24,8 +24,11 @@ class ArticlesController < ApplicationController
         #   render 'new'
         # end
 
-        @article = Article.new(title: params[:article][:title],
-                                body: params[:article][:body])
+        # @article = Article.new(title: params[:article][:title],
+        #                         body: params[:article][:body])
+        # Esto de above va a ser changued por PARAMETROS FUERTES
+        @article = Article.new(article_params)
+
 
         # Save Article
         # @article.save
@@ -57,6 +60,23 @@ class ArticlesController < ApplicationController
             flash[:error] = 'Something went wrong'
             redirect_to articles_url
         end
+    end
+
+    def edit
+        @article = Article.find(params[:id])
+    end
+
+    def update
+        @article =Article.find(params[:id])
+        if @article.update(article_params)
+            redirect_to @article
+        else 
+            render :edit
+        end
+    end
+    
+    def article_params
+        params.require(:article).permit(:title, :body)
     end
     
 end
