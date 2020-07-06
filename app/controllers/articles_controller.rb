@@ -1,5 +1,13 @@
 class ArticlesController < ApplicationController
 
+    ## Vamos a validad las rutas
+    # aca lo hacen en los controladores
+    before_action :authenticate_user!, except: [ :show, :index]
+   
+    # Buscar id, del cual se hacer referencia
+    before_action :set_article,  except: [ :new, :index, :create]
+
+
     def index
         # No olvidad que con @ envio data al la vistass
         @nombre ="Juan"
@@ -7,7 +15,9 @@ class ArticlesController < ApplicationController
     end
 
     def show
-        @article = Article.find(params[:id])
+        # @article = Article.find(params[:id])
+        #Hacer referencia al modelo el @article
+        @article.update_visits_count
     end
 
     def new
@@ -53,7 +63,7 @@ class ArticlesController < ApplicationController
     end
 
     def destroy
-        @article = Article.find(params[:id])
+        # @article = Article.find(params[:id])
         if @article.destroy
             flash[:success] = 'Object was successfully deleted.'
             redirect_to articles_url
@@ -68,7 +78,7 @@ class ArticlesController < ApplicationController
     end
 
     def edit
-        @article = Article.find(params[:id])
+        # @article = Article.find(params[:id])
     end
 
     def update
@@ -80,6 +90,12 @@ class ArticlesController < ApplicationController
         end
     end
     
+    private
+
+    def set_article
+        @article = Article.find(params[:id])
+    end
+
     def article_params
         params.require(:article).permit(:title, :body)
     end
