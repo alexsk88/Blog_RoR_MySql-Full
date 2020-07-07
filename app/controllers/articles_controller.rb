@@ -18,6 +18,7 @@ class ArticlesController < ApplicationController
         # @article = Article.find(params[:id])
         #Hacer referencia al modelo el @article
         @article.update_visits_count
+        @comment = Comment.new
     end
 
     def new
