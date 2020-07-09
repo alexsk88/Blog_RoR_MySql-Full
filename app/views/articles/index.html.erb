@@ -3,6 +3,7 @@
 
     <%if user_signed_in?%>
         <h3>Hola <%= current_user.email%> </h3>
+        <%= link_to "Add",{ controller: "articles", action: "new"}, class:"btn btn-danger"%>
     <%end%>
 
     <h1 class="text-danger"><b>Mis Articulos</b></h1>

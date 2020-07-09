@@ -11,11 +11,17 @@
     </div>
 
     <div class="form-group">
+        <label for="title">Cover</label>
+        <%= f.file_field :cover, class:"form-control-file"%>
+    </div>
+
+    <div class="form-group">
         <label for="content">Contenido</label>
         <!-- <input type="email" class="form-control" id="content" placeholder="Ingresa un Contenido"> -->
         <!-- :title => este es campo que esta en la BD OJOJO IMPORTSNT -->
         <%= f.text_area :body, class:"form-control", placeholder:"Ingresa unContenido" %>
        
         <%= f.submit name, class:"btn btn-danger btn-block mt-3" %>
-    </div>Comentarios
+    </div>
+    
 <% end %>

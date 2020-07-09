@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1><%= @article.title %></h1>
+    <p><%= truncate(@article.body, length: 30) %></p>
+    <%=link_to "Leer mas", article_url(@article)%>
+</body>
+</html>

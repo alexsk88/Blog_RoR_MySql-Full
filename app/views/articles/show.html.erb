@@ -1,6 +1,12 @@
 <div class="container mt-3">
 
     <h6 class="text-danger">Visitas: <%= @article.visits_count %></h6>
+
+    <div class="container">
+    <%= image_tag @article.cover.url() %>
+        <a href="<%=@article.cover.url()%>" download="w3logo">DESCARAGR</a>
+    </div>
+
     <h4 class="text-danger">Titulo</h4>
     <p> <%= @article.title %> </p>
 
